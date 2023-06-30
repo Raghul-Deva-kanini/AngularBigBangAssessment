@@ -1,0 +1,6 @@
+.table_wrap
+  {
+    overflow:hidden;
+    overflow-y: scroll;
+    height: 500px;
+  }

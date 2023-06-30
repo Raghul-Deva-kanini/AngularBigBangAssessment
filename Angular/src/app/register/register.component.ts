@@ -63,18 +63,22 @@ export class RegisterComponent implements OnInit {
 
   onPost() {
     if (this.registerForm.valid) {
-      if (this.register.role == "Staff") {
-        // this.signupService.signupStaff(this.register).subscribe(data => { console.log("Staff Register") ;
-        // alert("request Submitted");
-        // setTimeout(() => {
-        //   this.router.navigate(['login']);
-        // }, 3000);},
-        // err => {
-        //   console.log(err)
-        // });
+      if (this.register.role == "Doctor") {
+        this.signupService.signupStaff(this.register).subscribe(data => { console.log("Staff Register") ;
+        console.log(this.register);
+        alert("request Submitted");
+        setTimeout(() => {
+          this.router.navigate(['login']);
+        }, 3000);},
+        err => {
+          console.log(err)
+        });
+        
        
-          this.signupService.addUser(this.register);
-          alert("request Submitted");
+          // this.signupService.addUser(this.register);
+          // alert("request Submitted");
+         
+         
           // if (confirm("request Submitted"))
           // {
           //   window.location.reload();

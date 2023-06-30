@@ -88,8 +88,8 @@
                     <select class="form-control form-control-lg" [(ngModel)]="register.role" name="role" required
                       #role="ngModel">
                       <option value="" disabled selected hidden>Select Role</option>
-                      <option value="Staff">Staff</option>
-                      <option value="User">User</option>
+                      <option value="Doctor">Doctor</option>
+                      <option value="Patient">Patient</option>
                     </select>
                     <div *ngIf="role.invalid && role.touched" class="text-danger">
                       <div *ngIf="role.errors?.['required']">Role is required.</div>

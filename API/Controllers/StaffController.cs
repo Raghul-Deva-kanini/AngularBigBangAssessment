@@ -22,5 +22,25 @@ namespace RoleBasedAuthorization.Controllers
         {
             return await _staffService.PostStaff(staff);
         }
+
+        [HttpGet]
+        public async Task<IEnumerable<Staff>> GetStaff()
+        {
+            return await _staffService.GetStaff();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<Staff>>> DeleteStaff(string id)
+        {
+            var staff = await _staffService.DeleteStaff(id);
+
+            if (staff == null)
+            {
+                return NotFound("Staff id not matching");
+            }
+            return Ok(staff);
+        }
+
+
     }
 }
