@@ -4,23 +4,28 @@ using JWTAuthenticationApp.Models;
 using System.Security.Cryptography;
 using System.Text;
 using RoleBasedAuthorization.Models;
+using RoleBasedAuthorization.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace JWTAuthenticationApp.Services
 {
     public class UserService
     {
+        private RoleBasedAuthorizationDbContext _context;
         private IBaseRepo<string, User> _repo;
         private ITokenGenerate _tokenService;
 
-        public UserService(IBaseRepo<string, User> repo, ITokenGenerate tokenGenerate)
+        public UserService(IBaseRepo<string, User> repo, ITokenGenerate tokenGenerate, RoleBasedAuthorizationDbContext context)
         {
             _repo = repo;
             _tokenService = tokenGenerate;
+            _context = context;
         }
         public UserDTO Login(UserDTO userDTO)
         {
             UserDTO user = null;
-            var userData = _repo.Get(userDTO.Id);
+            var userData = _repo.Get(userDTO.Email);
             if (userData != null)
             {
                 var hmac = new HMACSHA512(userData.HashKey);
@@ -33,9 +38,11 @@ namespace JWTAuthenticationApp.Services
                 user = new UserDTO();
                 user.Id = userData.Id;
                 user.Role = userData.Role;
+                user.Email = userData.Email;
                 user.Token = _tokenService.GenerateToken(user);
+                return user;
             }
-            return user;
+            return null;
         }
         public UserDTO Register(UserRegisterDTO userDTO)
         {
@@ -53,6 +60,13 @@ namespace JWTAuthenticationApp.Services
                 user.Token = _tokenService.GenerateToken(user);
             }
             return user;
+        }
+
+        public async Task<List<User>?> GettDoctor()
+        {
+            //var doctor = await _context.Users.ToListAsync();
+            var doctor = await _context.Users.Where(r => r.Role == "Doctor").ToListAsync();
+            return doctor;
         }
     }
 }

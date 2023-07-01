@@ -11,6 +11,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SignupService } from './service/signup.service';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
+import { ContentComponent } from './content/content.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     HomepageComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

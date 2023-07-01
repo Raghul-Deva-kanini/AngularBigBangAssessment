@@ -44,11 +44,13 @@ export class RegisterComponent implements OnInit {
       role: "",
       password: "",
       hashKey: "",
-      passwordClear: ""
+      passwordClear: "",
+      qualification:"",
+      specialization:"",
+      yearsOfExperience:0
     }
 
     this.loggedInUser = new LoggedInUserModel();
-
   }
 
   ngOnInit() {
@@ -73,17 +75,8 @@ export class RegisterComponent implements OnInit {
         err => {
           console.log(err)
         });
-        
-       
-          // this.signupService.addUser(this.register);
-          // alert("request Submitted");
-         
-         
-          // if (confirm("request Submitted"))
-          // {
-          //   window.location.reload();
-          // }
       }
+      
       else {
         this.signupService.signup(this.register).subscribe(data => {
           console.log("register in component")
@@ -107,9 +100,24 @@ export class RegisterComponent implements OnInit {
       }
     }
     else {
-      this.showError = true; // Show the error message
+      if (this.register.role != "Doctor")
+      {
+        this.showError = true; // Show the error message
+      }
+      
     }
 
+    if (this.register.role == "Doctor") {
+      this.signupService.signupStaff(this.register).subscribe(data => { console.log("Staff Register") ;
+      console.log(this.register);
+      alert("request Submitted");
+      setTimeout(() => {
+        this.router.navigate(['login']);
+      }, 3000);},
+      err => {
+        console.log(err)
+      });
+    }
 
   }
 
@@ -122,6 +130,11 @@ export class RegisterComponent implements OnInit {
 
   togglePasswordVisibility(): void {
     this.passwordVisible = !this.passwordVisible;
+  }
+
+  LogOut()
+  {
+    this.router.navigateByUrl('homepage');
   }
 
 }
@@ -138,6 +151,9 @@ export class registerModel {
   password: string = "";
   hashKey: string = "";
   passwordClear: string = ""
+  qualification:string="";
+  specialization:string="";
+  yearsOfExperience:number;
 
 }
 

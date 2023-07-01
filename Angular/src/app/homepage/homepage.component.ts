@@ -19,6 +19,11 @@ export class HomepageComponent
   {
     this.router.navigateByUrl('login');
   }
+
+  loginPage()
+  {
+    this.router.navigateByUrl('login');
+  }
   
 
 }

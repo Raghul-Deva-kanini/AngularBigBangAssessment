@@ -17,25 +17,31 @@ export class AdminComponent implements OnInit{
   }
 
   public doctors: any;
+  public rowCount: number;
 
   getDoctorRequest()
   {
+    
     this.service.getDoctorRequest().subscribe(result=>{
       this.doctors = result;
+      this.rowCount = this.doctors.length;
       // console.log(this.doctors);
     })
+    
   }
 
   acceptDoctorRequest(doctor:any)
   {
     //alert("entered")
-    console.log(doctor);
+    
     doctor.password="";
     doctor.hashKey="";
+    console.log(doctor);
     this.service.approveStaff(doctor).subscribe(data => { console.log("Staff Register") ;
         setTimeout(() => {
           this.router.navigate(['login']);
-        }, 3000);},
+        }, 3000);
+      },
         err => {
           console.log(err)
         });
@@ -45,10 +51,12 @@ export class AdminComponent implements OnInit{
           // res=>{
           //   alert("deleted")
           // }
+          
           (result) => { alert("Staff Deleted");},
           (error)  => {
             alert("Error");
             }
+            
         )
  }
 
@@ -65,4 +73,9 @@ export class AdminComponent implements OnInit{
   )
   this.router.navigate(['login']);
  }
+
+ LogOut()
+  {
+    this.router.navigateByUrl('homepage');
+  }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SignupService } from '../service/signup.service';
 import { UserDTOModel } from '../register/model/userDTO.model';
+import { registerModel } from '../register/register.component';
 
 import { LoggedInUserModel } from '../register/model/loggedinuser.model';
 import { Router } from '@angular/router';
@@ -14,23 +15,24 @@ export class LoginComponent {
 
   invalid_user:string=''
 
-
+  register:registerModel
   userDTO:UserDTOModel
   loggedInUser:LoggedInUserModel
   
 
   constructor(private signupService : SignupService, private router : Router){
     this.userDTO=new UserDTOModel();
-    this.loggedInUser=new LoggedInUserModel
+    this.loggedInUser=new LoggedInUserModel();
+    this.register= new registerModel();
 
   }
 
  
 
   Login(){
-
+    console.log(this.userDTO)
     this.signupService.userLogin(this.userDTO).subscribe(data=>{
-      
+      console.log(data)
       this.loggedInUser = data as LoggedInUserModel;
       console.log(this.loggedInUser);
       
@@ -46,7 +48,8 @@ export class LoginComponent {
         this.router.navigateByUrl('admin');
       }
       else{
-        this.router.navigateByUrl('homepage');
+        //this.router.navigateByUrl('homepage');
+        this.router.navigateByUrl('content');
       }
       
 
@@ -66,5 +69,10 @@ export class LoginComponent {
 
   togglePasswordVisibility(): void {
     this.passwordVisible = !this.passwordVisible;
+  }
+
+  LogOut()
+  {
+    this.router.navigateByUrl('homepage');
   }
 }

@@ -3,6 +3,7 @@ using JWTAuthenticationApp.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RoleBasedAuthorization.Models;
 
 namespace RoleBasedAuthorization.Controllers
 {
@@ -36,5 +37,12 @@ namespace RoleBasedAuthorization.Controllers
                 }
                 return Ok(user);
             }
-        }
+
+            [HttpGet]
+            public async Task<ActionResult<List<User>?>> GettDoctor()
+            {
+            return await _service.GettDoctor();
+            }
+
+    }
 }

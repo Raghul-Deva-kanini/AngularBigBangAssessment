@@ -13,7 +13,10 @@ export class registerModel
         public role: string="",
         public password: string="",
         public hashKey: string="",
-        public passwordClear: string=""
+        public passwordClear: string="",
+        public qualification:string="",
+        public specialization:string="",
+        public yearsOfExperience:number
         )
         {
             

@@ -32,7 +32,7 @@ namespace JWTAuthenticationApp.Services
 
         public User Get(string key)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Id == key);
+            var user = _context.Users.FirstOrDefault(u => u.Email == key);
             return user;
         }
 

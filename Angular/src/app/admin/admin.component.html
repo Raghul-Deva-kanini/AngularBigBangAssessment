@@ -1,6 +1,4 @@
-<p>admin works!</p>
-
-<div class="table_wrap">
+<!-- <div class="table_wrap">
 <table class="table table-light table-bordered w-100 rounded-top">
 <thead>
     <tr>
@@ -9,24 +7,167 @@
         <th class="text-primary" scope="col">FIRST NAME</th>
         <th class="text-primary" scope="col">LAST NAME</th>
         <th class="text-primary" scope="col">GENDER</th>
-        <!-- <th class="text-primary" scope="col">PASSWORD CLEAR</th>
-        <th class="text-primary" scope="col">PASSWORD</th>
-        <th class="text-primary" scope="col">HASHKEY</th> -->
+        <th class="text-primary" scope="col">QUALIFICATION</th>
+        <th class="text-primary" scope="col">SPECIALIZATION</th>
+        <th class="text-primary" scope="col">YEARS OF EXPERIENCE</th>
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let doctor of doctors">
-        <td>{{doctor.id}}</td>
+    <tr *ngFor="let doctor of doctors; let i = index">
+        <div class="d-flex align-items-center">
+            <img
+                src="https://mdbootstrap.com/img/new/avatars/{{i + 1}}.jpg"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{doctor.id}}</p>
+            </div>
+        </div>
         <td>{{doctor.email}}</td>
         <td>{{doctor.firstName}}</td>
         <td>{{doctor.lastName}}</td>
         <td>{{doctor.gender}}</td>
-        <!-- <td>{{doctor.passwordclear}}</td>
-        <td>{{doctor.password}}</td>
-        <td>{{doctor.hashkey}}</td> -->
+        <td>{{doctor.qualification}}</td>
+        <td>{{doctor.specialization}}</td>
+        <td>{{doctor.yearsOfExperience}}</td>
         <td><button type="button" class="btn btn-primary btn-lg btn-block" (click)="acceptDoctorRequest(doctor)">Accept</button></td>
         <td><button type="button" class="btn btn-primary btn-lg btn-block" (click)="deleteDoctorRequest(doctor)">Reject</button></td>
     </tr>
 </tbody>
 </table>
-</div>
+</div> -->
+
+<!-- <div class="table_wrap">
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let doctor of doctors; let i = index">
+        <div class="card mb-4" style="max-width: 400px;">
+          <div class="d-flex align-items-center justify-content-center" style="height: 200px;">
+            <img src="https://mdbootstrap.com/img/new/avatars/{{i + 1}}.jpg" alt="" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{doctor.firstName}} {{doctor.lastName}}</h5>
+            <p class="card-text">Email: {{doctor.email}}</p>
+            <p class="card-text">Gender: {{doctor.gender}}</p>
+            <p class="card-text">Qualification: {{doctor.qualification}}</p>
+            <p class="card-text">Specialization: {{doctor.specialization}}</p>
+            <p class="card-text">Years of Experience: {{doctor.yearsOfExperience}}</p>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-success" (click)="acceptDoctorRequest(doctor)">Accept</button>
+              <button type="button" class="btn btn-danger" (click)="deleteDoctorRequest(doctor)">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+
+
+ <!-- <div class="table_wrap">
+    <div class="row justify-content-center g-2">
+      <div class="col-12 col-md-6 col-lg-3" *ngFor="let doctor of doctors; let i = index">
+        <div class="card mb-4" style="max-width: 400px;">
+          <div class="d-flex align-items-center justify-content-center" style="height: 200px;">
+            <img src="https://mdbootstrap.com/img/new/avatars/{{i + 1}}.jpg" alt="" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{doctor.firstName}} {{doctor.lastName}}</h5>
+            <p class="card-text">Email: {{doctor.email}}</p>
+            <p class="card-text">Gender: {{doctor.gender}}</p>
+            <p class="card-text">Qualification: {{doctor.qualification}}</p>
+            <p class="card-text">Specialization: {{doctor.specialization}}</p>
+            <p class="card-text">Years of Experience: {{doctor.yearsOfExperience}}</p>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-success" (click)="acceptDoctorRequest(doctor)">Accept</button>
+              <button type="button" class="btn btn-danger" (click)="deleteDoctorRequest(doctor)">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+
+  <!-- <h4>Number of Requests Pending : {{ rowCount }}</h4>
+  <div class="table_wrap">
+    <div class="row justify-content-center g-2">
+      <div class="col-12 col-md-6 col-lg-3" *ngFor="let doctor of doctors; let i = index">
+        <div class="card mb-4" style="max-width: 400px;">
+          <div class="d-flex align-items-center justify-content-center" style="height: 200px;">
+            <img src="https://mdbootstrap.com/img/new/avatars/{{i + 1}}.jpg" alt="" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{doctor.firstName}} {{doctor.lastName}}</h5>
+            <div class="text-start">
+              <p class="fw-bold mb-1">Email:</p>
+              <p class="mb-2">{{doctor.email}}</p>
+              <p class="fw-bold mb-1">Gender:</p>
+              <p class="mb-2">{{doctor.gender}}</p>
+              <p class="fw-bold mb-1">Qualification:</p>
+              <p class="mb-2">{{doctor.qualification}}</p>
+              <p class="fw-bold mb-1">Specialization:</p>
+              <p class="mb-2">{{doctor.specialization}}</p>
+              <p class="fw-bold mb-1">Years of Experience:</p>
+              <p class="mb-2">{{doctor.yearsOfExperience}}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-success" (click)="acceptDoctorRequest(doctor)">Accept</button>
+              <button type="button" class="btn btn-danger" (click)="deleteDoctorRequest(doctor)">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <span class="navbar-brand">
+      <img src="../../assets/Images/lotus_icon.jpg" alt="Lotus Icon" width="50" height="50">
+      LOTUS HOSPITAL
+    </span>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button (click)="LogOut()" class="btn btn-light btn-lg">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="table_wrap">
+    <div class="row justify-content-center g-2">
+      <div class="col-12">
+        <h4 class="text-center mt-4 mb-3" style="color: #393f81;">Number of Requests Pending: {{ rowCount }}</h4>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3" *ngFor="let doctor of doctors; let i = index">
+        <div class="card mb-4" style="max-width: 400px;">
+          <div class="d-flex align-items-center justify-content-center" style="height: 200px;">
+            <img src="https://mdbootstrap.com/img/new/avatars/{{i + 1}}.jpg" alt="" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{doctor.firstName}} {{doctor.lastName}}</h5>
+            <div class="text-start">
+              <p class="fw-bold mb-1">Email:</p>
+              <p class="mb-2">{{doctor.email}}</p>
+              <p class="fw-bold mb-1">Gender:</p>
+              <p class="mb-2">{{doctor.gender}}</p>
+              <p class="fw-bold mb-1">Qualification:</p>
+              <p class="mb-2">{{doctor.qualification}}</p>
+              <p class="fw-bold mb-1">Specialization:</p>
+              <p class="mb-2">{{doctor.specialization}}</p>
+              <p class="fw-bold mb-1">Years of Experience:</p>
+              <p class="mb-2">{{doctor.yearsOfExperience}}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-success" (click)="acceptDoctorRequest(doctor)">Accept</button>
+              <button type="button" class="btn btn-danger" (click)="deleteDoctorRequest(doctor)">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

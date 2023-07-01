@@ -34,7 +34,8 @@ export class SignupService{
       }
 
     signup(register:registerModel){
-        console.log("register in service")
+        console.log("register in service");
+        console.log(register);
         return this.httpClient.post("https://localhost:7192/api/User/Register",register);
     }
 
@@ -64,6 +65,7 @@ export class SignupService{
 
     public DeleteProduct(id:any)
     {
+        console.log(id);
       return this.httpClient.delete(`https://localhost:7192/api/Staff/` + id).pipe(
         catchError((error: HttpErrorResponse) => {
           let errorMessage = '';
@@ -77,5 +79,10 @@ export class SignupService{
           return throwError(errorMessage);
         })
       );
+    }
+
+    getDoctorData()
+    {
+      return this.httpClient.get(`https://localhost:7192/api/User`);
     }
 }

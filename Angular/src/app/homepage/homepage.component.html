@@ -1,42 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hospital Landing Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      /* Add some padding to the sections for better visibility */
+      section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    </style>
     
-</head>
-<body>
+  </head>
 
-  hello
-     <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: sticky;">
-        <div class="container">
-          <a class="navbar-brand" href="#">Logo</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link active" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" routerLink="/user" routerLinkActive="active">User Page</a>
-              </li>
-              <li class="nav-item" *ngIf="flag">
-                <a class="nav-link active" routerLink="/admin" routerLinkActive="active">Admin Page</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" (click)="logout()" style="cursor:pointer;color: white;">Logout</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" style="cursor: default;">Welcome {{ username }}</a>
-              </li>
-            </ul>
+  <body data-spy="scroll" data-offset="50">
+    <!-- Navbar -->
+    <!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <span class="navbar-brand"><img src="../../assets/Images/lotus_icon.jpg" alt="Lotus Icon" width="50" height="50">LOTUS HOSPITAL</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      
+      <li class="nav-item">
+        <button (click)="loginPage()" class="btn btn-light btn-lg">Login/Signup</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero bg-primary text-white text-center py-5">
+      <h1>Welcome to Lotus Hospital</h1>
+      <p class="lead">Providing quality healthcare services</p>
+      <button (click)="loginPage()" class="btn btn-light btn-lg">Login/Signup</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="../../assets/Images/hospital_image.jpg" class="img-fluid" alt="About Image">
+          </div>
+          <div class="col-md-6">
+            <h2>About Us</h2>
+            <p>We are a leading healthcare provider dedicated to delivering exceptional medical services to our patients. With a team of highly skilled doctors, nurses, and staff, we strive to provide comprehensive and compassionate care to individuals and families in need. Our state-of-the-art facilities are equipped with advanced technology, allowing us to offer a wide range of medical specialties and treatments. We are committed to promoting health, preventing illness, and improving the well-being of our community. Trust us to be your healthcare partner and provide you with the highest quality of medical care.</p>
           </div>
         </div>
-      </nav> 
-       -->
-</body>
-</html>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center">Our Services</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <img src="../../assets/Images/hs1.jpg" class="card-img-top" alt="Service 1">
+              <div class="card-body">
+                <h5 class="card-title">Service 1</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <img src="../../assets/Images/hs2.jpg" class="card-img-top" alt="Service 2">
+              <div class="card-body">
+                <h5 class="card-title">Service 2</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <img src="../../assets/Images/hs3.jpg" class="card-img-top" alt="Service 3">
+              <div class="card-body">
+                <h5 class="card-title">Service 3</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="text-center">Contact Us</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <h4>Contact Information</h4>
+            <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+            <p><strong>Email:</strong> info@example.com</p>
+            <p><strong>Phone:</strong> +1 123 456 7890</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+      <p>&copy; 2023 Hospital Name. All rights reserved.</p>
+    </footer>
+
+    
+   
+  </body>
+
+  </html>
+

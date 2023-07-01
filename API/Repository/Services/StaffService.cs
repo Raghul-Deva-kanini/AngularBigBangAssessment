@@ -36,12 +36,12 @@ namespace RoleBasedAuthorization.Repository.Services
 
         public async Task<List<Staff>> DeleteStaff(string id)
         {
-            var staff = _context.Staff.Find(id);
-            if (staff is null)
+            var staff =await _context.Staff.FirstOrDefaultAsync(s=>s.Id== id);
+            if (staff == null)
             {
                 return null;
             }
-            _context.Remove(staff);
+             _context.Staff.Remove(staff);
             await _context.SaveChangesAsync();
             return await _context.Staff.ToListAsync();
         }

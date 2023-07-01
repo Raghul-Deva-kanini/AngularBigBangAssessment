@@ -23,7 +23,8 @@ export class AppComponent {
   constructor( private router : Router   ){
 
     //  this.login.loggedInUser = null;
-    this.router.navigate(['/', 'login']);
+    //this.router.navigate(['/', 'login']);
+     this.router.navigate(['/', 'homepage']);
 
     this.role = localStorage.getItem("role");
     if (this.role == "Admin")

@@ -7,9 +7,12 @@ namespace RoleBasedAuthorization.Models
 {
     public class User
     {
+        /*[Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]*/
+        public string? Id { get; set; }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string? Id { get; set; }
         public string? Email { get; set; } 
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
@@ -20,5 +23,8 @@ namespace RoleBasedAuthorization.Models
         public string Role { get; set; }=string.Empty;
         public byte[]? Password { get; set; }
         public byte[]? HashKey { get; set; }
+        public string Qualification { get; set; } = string.Empty;
+        public string Specialization { get; set; } = string.Empty;
+        public int YearsOfExperience { get; set; }
     }
 }
