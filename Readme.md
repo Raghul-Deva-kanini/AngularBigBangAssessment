@@ -2,6 +2,10 @@
 
 This readme file provides an overview of the implementation steps for API consumption in Angular with JWT token authentication in order to create a web-based platform that enables seamless communication between administrators, doctors, and patients in a healthcare organization.
 
+## Landing Page
+
+![Landing Page](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/703f9da6-cb8d-45a0-9e86-07f7724aa437)
+
 ## Background
 
 In a healthcare organization, there is a need to establish a web-based platform that enables seamless communication between administrators, doctors, and patients. The platform should allow administrators to activate doctors, while patients can register and login to access medical services. To ensure data security and user authentication, API consumption in Angular with JWT token authentication is required.
@@ -64,6 +68,20 @@ The main objective is to guide the development team in implementing API consumpt
 - **Efficient communication**: The platform facilitates effective communication among administrators, doctors, and patients, improving healthcare workflows.
 - **Scalability**: The system can accommodate a growing number of administrators, doctors, and patients as the organization expands.
 
-## Conclusion
+# Screenshots
 
-By implementing API consumption in
+## Login page
+
+![Login_page](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/eb3a3f3f-82b7-4f3e-897f-e1349bb936bb)
+
+## Registration page
+
+![Registration_page](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/0a5081b5-cae9-45c0-8dd0-39bbbc3b7e36)
+
+## Admin View
+
+![Admin_view](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/a6cd5db2-88f7-4cf3-828c-9010d03e1ede)
+
+## Users View
+
+![Users_view](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/b9516422-aaf7-4e35-b7ce-4fc4b63c29fc)
