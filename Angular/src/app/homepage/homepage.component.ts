@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ScrollService } from '../service/scroll.service';
 
 
 @Component({
@@ -10,11 +11,20 @@ import { Router } from '@angular/router';
 export class HomepageComponent 
 {
   
-  constructor(private router:Router)
+  constructor(private router:Router, private scrollService: ScrollService)
   {
    
   }
 
+  scrollToId(id: string) {
+    console.log("element id : ", id);
+    this.scrollService.scrollToElementById(id);
+  }
+
+  scrollToElement(element: HTMLElement) {
+    this.scrollService.scrollToElement(element);
+  }
+  
   logout()
   {
     this.router.navigateByUrl('login');

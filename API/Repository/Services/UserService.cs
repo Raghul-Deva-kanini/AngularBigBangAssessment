@@ -68,5 +68,17 @@ namespace JWTAuthenticationApp.Services
             var doctor = await _context.Users.Where(r => r.Role == "Doctor").ToListAsync();
             return doctor;
         }
+
+        public async Task<List<User>> DeleteStaff(string id)
+        {
+            var staff = await _context.Users.FirstOrDefaultAsync(s => s.Id == id);
+            if (staff == null)
+            {
+                return null;
+            }
+            _context.Users.Remove(staff);
+            await _context.SaveChangesAsync();
+            return await _context.Users.ToListAsync();
+        }
     }
 }

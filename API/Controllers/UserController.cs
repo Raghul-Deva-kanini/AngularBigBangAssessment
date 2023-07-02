@@ -1,9 +1,11 @@
 ﻿using JWTAuthenticationApp.Models.DTO;
 using JWTAuthenticationApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleBasedAuthorization.Models;
+using System.Data;
 
 namespace RoleBasedAuthorization.Controllers
 {
@@ -35,14 +37,28 @@ namespace RoleBasedAuthorization.Controllers
                 {
                     return BadRequest("Invalid username or password");
                 }
-                return Ok(user);
-            }
+            return Ok(user);
+        }
 
             [HttpGet]
-            public async Task<ActionResult<List<User>?>> GettDoctor()
+            //[Authorize(Roles = "Admin")]
+        public async Task<ActionResult<List<User>?>> GettDoctor()
             {
             return await _service.GettDoctor();
             }
+
+        [HttpDelete("{id}")]
+        //[Authorize(Roles = "Admin")]
+        public async Task<ActionResult<List<User>>> DeleteStaff(string id)
+        {
+            var staff = await _service.DeleteStaff(id);
+
+            if (staff == null)
+            {
+                return NotFound("Staff id not matching");
+            }
+            return Ok(staff);
+        }
 
     }
 }

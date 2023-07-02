@@ -61,6 +61,13 @@ export class LoginComponent {
     });
   }
 
+  clearForm() 
+  {
+    // this.userDTO = {}; // Clear the userDTO object to reset the form fields
+    this.userDTO.email="";
+    this.userDTO.password="";
+  }
+
   move(){
     this.router.navigateByUrl('register');
   }

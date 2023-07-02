@@ -12,16 +12,17 @@ export class AdminComponent implements OnInit{
 
   constructor(private service:SignupService, private router:Router){}
 
-  ngOnInit(): void {
-   this.getDoctorRequest();
-  }
-
   public doctors: any;
   public rowCount: number;
+  public doctors_available: any;
+
+  ngOnInit(): void {
+   this.getDoctorRequest();
+   this.getDoctors();
+  }
 
   getDoctorRequest()
   {
-    
     this.service.getDoctorRequest().subscribe(result=>{
       this.doctors = result;
       this.rowCount = this.doctors.length;
@@ -33,7 +34,6 @@ export class AdminComponent implements OnInit{
   acceptDoctorRequest(doctor:any)
   {
     //alert("entered")
-    
     doctor.password="";
     doctor.hashKey="";
     console.log(doctor);
@@ -48,14 +48,11 @@ export class AdminComponent implements OnInit{
          alert("request Approved");
 
          this.service.DeleteProduct(doctor.id).subscribe(
-          // res=>{
-          //   alert("deleted")
-          // }
           
-          (result) => { alert("Staff Deleted");},
-          (error)  => {
-            alert("Error");
-            }
+          // (result) => { alert("Staff Deleted");},
+          // (error)  => {
+          //   alert("Error");
+          //   }
             
         )
  }
@@ -63,10 +60,7 @@ export class AdminComponent implements OnInit{
  deleteDoctorRequest(doctor:any)
  {
   this.service.DeleteProduct(doctor.id).subscribe(
-    // res=>{
-    //   alert("deleted")
-    // }
-    (result) => { alert("Staff Deleted");},
+    (result) => { alert("Doctor Request Deleted");},
     (error)  => {
       alert("Error");
       }
@@ -74,8 +68,28 @@ export class AdminComponent implements OnInit{
   this.router.navigate(['login']);
  }
 
+ DeleteDoctorUsers(doctor:any)
+ {
+    this.service.DeleteDoctorFromUsers(doctor.id).subscribe(
+      (result) => {alert ("Doctor Access Revoked");},
+      (error) =>
+      {
+        alert("Error");
+      }
+    )
+    this.router.navigate(['login']);
+ }
+
  LogOut()
   {
     this.router.navigateByUrl('homepage');
+  }
+
+  getDoctors()
+  {
+    this.service.getDoctorData().subscribe(result2=>{
+      this.doctors_available = result2;
+      console.log(this.doctors_available);
+    }) 
   }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoleBasedAuthorization.Models;
 using RoleBasedAuthorization.Repository.Interfaces;
@@ -24,6 +25,7 @@ namespace RoleBasedAuthorization.Controllers
         }
 
         [HttpGet]
+        //[Authorize(Roles = "Admin")]
         public async Task<IEnumerable<Staff>> GetStaff()
         {
             return await _staffService.GetStaff();

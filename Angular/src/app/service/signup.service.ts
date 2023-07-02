@@ -81,6 +81,23 @@ export class SignupService{
       );
     }
 
+    public DeleteDoctorFromUsers(id:any)
+    {
+      return this.httpClient.delete(`https://localhost:7192/api/User/` + id).pipe(
+        catchError((error: HttpErrorResponse) => {
+          let errorMessage = '';
+          if (error.error instanceof ErrorEvent) {
+            // Client-side error occurred
+            errorMessage = error.error.message;
+          } else {
+            // Server-side error occurred
+            errorMessage =  error.error;
+          }
+          return throwError(errorMessage);
+        })
+      );
+    }
+
     getDoctorData()
     {
       return this.httpClient.get(`https://localhost:7192/api/User`);
