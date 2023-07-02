@@ -68,6 +68,11 @@ The main objective is to guide the development team in implementing API consumpt
 - **Efficient communication**: The platform facilitates effective communication among administrators, doctors, and patients, improving healthcare workflows.
 - **Scalability**: The system can accommodate a growing number of administrators, doctors, and patients as the organization expands.
 
-## Conclusion
+# Screenshots
 
-By implementing API consumption in
+## Login page
+
+![Login_page](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/eb3a3f3f-82b7-4f3e-897f-e1349bb936bb)
+
+## Registration page
+
