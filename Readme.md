@@ -1,6 +1,7 @@
 # Admin-Doctors-Patient Communication Platform
 
 This readme file provides an overview of the implementation steps for API consumption in Angular with JWT token authentication in order to create a web-based platform that enables seamless communication between administrators, doctors, and patients in a healthcare organization.
+![Landing Page](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/703f9da6-cb8d-45a0-9e86-07f7724aa437)
 
 ## Background
 
