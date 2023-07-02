@@ -82,3 +82,6 @@ The main objective is to guide the development team in implementing API consumpt
 
 ![Admin_view](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/a6cd5db2-88f7-4cf3-828c-9010d03e1ede)
 
+## Users View
+
+![Users_view](https://github.com/Raghul-Deva-kanini/AngularBigBangAssessment/assets/127297925/b9516422-aaf7-4e35-b7ce-4fc4b63c29fc)
