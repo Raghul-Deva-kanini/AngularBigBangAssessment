@@ -18,6 +18,8 @@ export class LoginComponent {
   register:registerModel
   userDTO:UserDTOModel
   loggedInUser:LoggedInUserModel
+
+  showError = false;
   
 
   constructor(private signupService : SignupService, private router : Router){
@@ -31,41 +33,53 @@ export class LoginComponent {
 
   Login(){
     console.log(this.userDTO)
-    this.signupService.userLogin(this.userDTO).subscribe(data=>{
-      console.log(data)
-      this.loggedInUser = data as LoggedInUserModel;
-      console.log(this.loggedInUser);
-      
-      localStorage.setItem("token",this.loggedInUser.token);
-      localStorage.setItem("UserID",this.loggedInUser.id);
-      localStorage.setItem("role",this.loggedInUser.role);
-      localStorage.setItem("login", new Date().toDateString());
-      // console.log(localStorage.getItem("login"));
-      // alert("Login Successful")
-      // this.router.navigateByUrl('homepage');
-      if (localStorage.getItem("role")=="Admin")
-      {
-        this.router.navigateByUrl('admin');
-      }
-      else{
-        //this.router.navigateByUrl('homepage');
-        this.router.navigateByUrl('content');
-      }
-      
+    if (this.userDTO.email != '' || this.userDTO.password != '')
+    {
+      this.signupService.userLogin(this.userDTO).subscribe(data=>{
+        console.log(data)
+        this.loggedInUser = data as LoggedInUserModel;
+        console.log(this.loggedInUser);
+        
+        localStorage.setItem("token",this.loggedInUser.token);
+        localStorage.setItem("UserID",this.loggedInUser.id);
+        localStorage.setItem("role",this.loggedInUser.role);
+        localStorage.setItem("login", new Date().toDateString());
+        // console.log(localStorage.getItem("login"));
+        // alert("Login Successful")
+        // this.router.navigateByUrl('homepage');
+        if (localStorage.getItem("role")=="Admin")
+        {
+          this.router.navigateByUrl('admin');
+        }
+        else if (localStorage.getItem("role")=="Doctor")
+        {
+          this.router.navigateByUrl('doctorContent');
+        }
+        else{
+          //this.router.navigateByUrl('homepage');
+          this.router.navigateByUrl('content');
+        }
+        
+      },
+      err=>{
+        console.log(err)
+        this.invalid_user='Invalid Username/password';
+      });  
+    }
 
-    },
-    err=>{
-      console.log(err)
-      //alert("Invalid Username/password")
-      this.invalid_user='Invalid Username/password'
-    });
+    else if (this.userDTO.email === '' || this.userDTO.password === '') {
+      this.showError = true;
+    }
+    
   }
 
   clearForm() 
   {
     // this.userDTO = {}; // Clear the userDTO object to reset the form fields
-    this.userDTO.email="";
-    this.userDTO.password="";
+    this.userDTO.email = '';
+    this.userDTO.password = '';
+    this.showError = false;
+    this.invalid_user='';
   }
 
   move(){

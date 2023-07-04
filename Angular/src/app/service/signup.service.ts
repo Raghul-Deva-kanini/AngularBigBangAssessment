@@ -102,4 +102,10 @@ export class SignupService{
     {
       return this.httpClient.get(`https://localhost:7192/api/User`);
     }
+
+    getPatientData()
+    {
+      console.log("Entered");
+      return this.httpClient.get(`https://localhost:7192/api/User/Patients`);
+    }
 }

@@ -10,6 +10,5 @@ namespace RoleBasedAuthorization.Data
         public DbSet<User> Users { get; set; }
 
         public DbSet<Staff> Staff { get; set; }
-        public DbSet<ProductDatum> Products { get; set; }
     }
 }

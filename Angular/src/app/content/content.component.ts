@@ -9,13 +9,18 @@ import { Router } from '@angular/router';
 })
 export class ContentComponent implements OnInit{
 
+ 
+  
+
   constructor(private service:SignupService, private router:Router){}
 
   ngOnInit(): void {
     this.getDoctors();
+    
    }
 
    public doctors: any;
+   public doctorList : any;
   
   getDoctors()
   {
@@ -28,4 +33,6 @@ export class ContentComponent implements OnInit{
   {
     this.router.navigateByUrl('homepage');
   }
+
+  
 }

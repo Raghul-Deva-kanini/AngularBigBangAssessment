@@ -3,6 +3,7 @@ import { SignupService } from '../service/signup.service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -46,14 +47,14 @@ export class AdminComponent implements OnInit{
           console.log(err)
         });
          alert("request Approved");
+        // this.ngToast.success({detail:"Request Approved", duration:5000});
 
          this.service.DeleteProduct(doctor.id).subscribe(
           
           // (result) => { alert("Staff Deleted");},
           // (error)  => {
           //   alert("Error");
-          //   }
-            
+          //   } 
         )
  }
 

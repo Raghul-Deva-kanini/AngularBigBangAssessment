@@ -99,6 +99,10 @@ export class RegisterComponent implements OnInit {
           });
       }
     }
+    else if (this.register.role=="Doctor")
+    {
+      this.showError=true;
+    }
     else {
       if (this.register.role != "Doctor")
       {

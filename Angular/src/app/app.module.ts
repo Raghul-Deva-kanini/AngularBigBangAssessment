@@ -12,6 +12,7 @@ import { SignupService } from './service/signup.service';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { ContentComponent } from './content/content.component';
+import { DoctorContentComponent } from './doctor-content/doctor-content.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ContentComponent } from './content/content.component';
     HomepageComponent,
     UserComponent,
     AdminComponent,
-    ContentComponent
+    ContentComponent,
+    DoctorContentComponent, 
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBaseRepo<string, User>, UserRepo>();
 builder.Services.AddScoped<ITokenGenerate, TokenService>();
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<IProductServices, ProductServices>();
 builder.Services.AddScoped<IStaffService, StaffService>();
 builder.Services.AddCors(opts =>
 {

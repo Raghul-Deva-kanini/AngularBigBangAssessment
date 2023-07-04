@@ -112,40 +112,39 @@
                     </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input *ngIf="register.role==='Doctor'" type="text" class="form-control form-control-lg" placeholder="Qualification"
+                  <div class="form-outline mb-4" *ngIf="register.role==='Doctor'" enable>
+                    <input  type="text" class="form-control form-control-lg" placeholder="Qualification"
                       [(ngModel)]="register.qualification" name="qualification" required pattern="[a-zA-Z]+"
                       #qualification="ngModel" />
                       
-                      <!-- <div *ngIf="qualification.invalid && qualification.touched" class="text-danger">
+                      <div *ngIf="qualification.invalid && qualification.touched" class="text-danger">
                         <div *ngIf="qualification.errors?.['required']">Qualification is required.</div>
                         <div *ngIf="qualification.errors?.['pattern']">Please enter a valid Qualification (only alphabets are
                           allowed).</div>
-                      </div> -->
+                      </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input *ngIf="register.role==='Doctor'" type="text" class="form-control form-control-lg" placeholder="Specialization"
+                  <div class="form-outline mb-4" *ngIf="register.role==='Doctor'" enable>
+                    <input type="text" class="form-control form-control-lg" placeholder="Specialization"
                       [(ngModel)]="register.specialization" name="specialization" required pattern="[a-zA-Z]+"
                       #qualification="ngModel" />
                       
-                      <!-- <div *ngIf="qualification.invalid && qualification.touched" class="text-danger">
+                      <div *ngIf="qualification.invalid && qualification.touched" class="text-danger">
                         <div *ngIf="qualification.errors?.['required']">Qualification is required.</div>
                         <div *ngIf="qualification.errors?.['pattern']">Please enter a valid Qualification (only alphabets are
                           allowed).</div>
-                      </div> -->
+                      </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input *ngIf="register.role==='Doctor'" type="text" class="form-control form-control-lg" placeholder="Years Of Experience"
+                  <div class="form-outline mb-4" *ngIf="register.role==='Doctor'" enable>
+                    <input  type="text" class="form-control form-control-lg" placeholder="Years Of Experience"
                       [(ngModel)]="register.yearsOfExperience" name="yearsOfExperience"
-                      #qualification="ngModel" />
+                      #yearsOfExperience="ngModel" />
                       
-                      <!-- <div *ngIf="qualification.invalid && qualification.touched" class="text-danger">
-                        <div *ngIf="qualification.errors?.['required']">Qualification is required.</div>
-                        <div *ngIf="qualification.errors?.['pattern']">Please enter a valid Qualification (only alphabets are
-                          allowed).</div>
-                      </div> -->
+                      <div *ngIf="yearsOfExperience.invalid && yearsOfExperience.touched" class="text-danger">
+                        <div *ngIf="yearsOfExperience.errors?.['required']">Years of experience is required .</div>
+                        <div *ngIf="yearsOfExperience.errors?.['pattern']">Please enter a years of experience</div>
+                      </div>
                   </div>
 
 
@@ -184,13 +183,13 @@
                     </div>
                   </div>
 
-                  
-                  
-                  
                 
                   <div class="pt-3 mb-9">
                     <button class="btn btn-dark btn-lg btn-block" type="button" (click)="onPost()">Register</button>
-                    <div *ngIf="showError" class="text-danger">Please fill all the fields.</div>
+                    <!-- <div *ngIf="showError" class="text-danger">Please fill all the fields.</div> -->
+                    <div *ngIf="showError && (registerForm.invalid || (registerForm.valid && !register.role))" class="text-danger">
+                      Please fill all the fields.
+                    </div>
                   </div>
 
                   <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account?
