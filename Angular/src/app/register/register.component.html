@@ -126,13 +126,12 @@
 
                   <div class="form-outline mb-4" *ngIf="register.role==='Doctor'" enable>
                     <input type="text" class="form-control form-control-lg" placeholder="Specialization"
-                      [(ngModel)]="register.specialization" name="specialization" required pattern="[a-zA-Z]+"
+                      [(ngModel)]="register.specialization" name="specialization" required pattern="[a-zA-Z ]+"
                       #qualification="ngModel" />
                       
                       <div *ngIf="qualification.invalid && qualification.touched" class="text-danger">
-                        <div *ngIf="qualification.errors?.['required']">Qualification is required.</div>
-                        <div *ngIf="qualification.errors?.['pattern']">Please enter a valid Qualification (only alphabets are
-                          allowed).</div>
+                        <div *ngIf="qualification.errors?.['required']">Specialization is required.</div>
+                        <div *ngIf="qualification.errors?.['pattern']">Please enter a valid Specialization</div>
                       </div>
                   </div>
 

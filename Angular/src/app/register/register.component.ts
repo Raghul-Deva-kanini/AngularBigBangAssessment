@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit {
           localStorage.setItem("token", this.loggedInUser.token);
           localStorage.setItem("UserID", this.loggedInUser.id);
           localStorage.setItem("role", this.loggedInUser.role);
-          this.registration_status = true;
+          this.registration_status = true;+
           setTimeout(() => {
             this.router.navigate(['login']);
           }, 3000);

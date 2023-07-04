@@ -10,4 +10,16 @@
     padding: 10px;
   }
 
+
+  .for_approval
+  {
+    background: url("../../assets/Images/hero-bg.jpg") top center;
+    background-size: cover;
+  }
+
+  .existing_doctors
+  {
+    background: url("../../assets/Images/hospital_image.jpg");
+    background-size: cover;
+  }
   
