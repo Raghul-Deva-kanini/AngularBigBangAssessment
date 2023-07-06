@@ -83,6 +83,7 @@ export class AdminComponent implements OnInit{
 
  LogOut()
   {
+    localStorage.clear();
     this.router.navigateByUrl('homepage');
   }
 

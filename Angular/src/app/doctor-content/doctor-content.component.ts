@@ -53,6 +53,9 @@ export class DoctorContentComponent implements OnInit{
   
   LogOut()
   {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userID");
+    localStorage.removeItem("role");
     this.router.navigateByUrl('homepage');
   }
 }

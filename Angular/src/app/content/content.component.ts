@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 export class ContentComponent implements OnInit{
 
  
-  
-
   constructor(private service:SignupService, private router:Router){}
 
   ngOnInit(): void {
@@ -31,6 +29,9 @@ export class ContentComponent implements OnInit{
 
   LogOut()
   {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userID");
+    localStorage.removeItem("role");
     this.router.navigateByUrl('homepage');
   }
 

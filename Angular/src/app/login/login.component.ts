@@ -94,6 +94,9 @@ export class LoginComponent {
 
   LogOut()
   {
-    this.router.navigateByUrl('homepage');
+    localStorage.removeItem("token");
+    localStorage.removeItem("userID");
+    localStorage.removeItem("role");
+    this.router.navigateByUrl('/homepage');
   }
 }
